@@ -8,8 +8,20 @@ export class PersonaModule {
   id: number;
 
   @Column()
+  apellido: string;
+
+  @Column()
   name: string;
 
   @Column()
-  price: number;
+  fechaDeNacimiento: Date;
+
+  @Column()
+  direccion:string;
+
+  @Column()
+  telefono:number;
+
+  @Column()
+  pais:string;
 }
