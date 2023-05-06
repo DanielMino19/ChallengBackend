@@ -11,7 +11,7 @@ export class PersonaModule {
   apellido: string;
 
   @Column()
-  name: string;
+  nombre: string;
 
   @Column()
   fechaDeNacimiento: Date;
