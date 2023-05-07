@@ -10,11 +10,11 @@ import { PersonaModule } from './persona/persona.module';
   imports:[
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'bgfh4edmciemtav8nqxq-mysql.services.clever-cloud.com',
-      port: 3306,
-      username: 'umx2e96ryhtrvw0c',
-      password: 'FAzGrfGcqMhPUxzjRQw9',
-      database: 'bgfh4edmciemtav8nqxq',
+      host: process.env.DB_HOST,
+      port: Number(process.env.DB_PORT),
+      username: process.env.DB_USERNAME,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_DATABASE,
       entities: [PersonaModule],
       synchronize: true,
     }),
