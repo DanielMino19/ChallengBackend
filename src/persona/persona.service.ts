@@ -7,27 +7,27 @@ import { PersonaModule } from './persona.module';
 export class PersonaService {
   constructor(
     @InjectRepository(PersonaModule)
-    private productsRepository: Repository<PersonaModule>,
+    private personasRepository: Repository<PersonaModule>,
   ) {}
 
   create(perso: PersonaModule) {
-    return this.productsRepository.save(perso);
+    return this.personasRepository.save(perso);
       }
     
   findAll(): Promise<PersonaModule[]> {
-        return this.productsRepository.find();
+        return this.personasRepository.find();
       }
     
    findOne(id: number): Promise<PersonaModule> {
-        return this.productsRepository.findOne({ where: { id } });
+        return this.personasRepository.findOne({ where: { id } });
       }
     
-      async update(id: number, product: PersonaModule) {
-        await this.productsRepository.update(id, product);
-        return this.productsRepository.findOne({ where: { id } });
+      async update(id: number, perso: PersonaModule) {
+        await this.personasRepository.update(id, perso);
+        return this.personasRepository.findOne({ where: { id } });
       }
     
   delete(id: number) {
-    return this.productsRepository.delete(id);
+    return this.personasRepository.delete(id);
   }
 }

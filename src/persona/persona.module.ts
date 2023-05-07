@@ -14,13 +14,13 @@ export class PersonaModule {
   nombre: string;
 
   @Column()
-  fechaDeNacimiento: Date;
+  fechaDeNacimiento:Date;
 
   @Column()
   direccion:string;
 
   @Column()
-  telefono:number;
+  telefono:string;
 
   @Column()
   pais:string;
