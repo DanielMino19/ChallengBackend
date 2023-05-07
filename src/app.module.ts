@@ -4,10 +4,12 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm/dist/typeorm.module';
 import { PersonaController } from './persona/persona.controller';
 import { PersonaService } from './persona/persona.service';
-import { PersonaModule } from './persona/persona.module';
+import { Persona } from './persona/persona.entity';
+import {ConfigModule } from '@nestjs/config'
 
 @Module({
   imports:[
+    ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: process.env.DB_HOST,
@@ -15,11 +17,10 @@ import { PersonaModule } from './persona/persona.module';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
-      entities: [PersonaModule],
+      entities: [Persona],
       synchronize: true,
     }),
-    TypeOrmModule.forFeature([PersonaModule]), 
-    PersonaModule,
+    TypeOrmModule.forFeature([Persona]), 
   ],
   controllers: [AppController, PersonaController],
   providers: [AppService, PersonaService],

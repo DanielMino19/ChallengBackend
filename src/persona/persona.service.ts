@@ -1,29 +1,29 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { PersonaModule } from './persona.module';
+import { Persona } from './persona.entity';
 
 @Injectable()
 export class PersonaService {
   constructor(
-    @InjectRepository(PersonaModule)
-    private personasRepository: Repository<PersonaModule>,
+    @InjectRepository(Persona)
+    private personasRepository: Repository<Persona>,
   ) {}
 
-  create(perso: PersonaModule) {
-    return this.personasRepository.save(perso);
+  create(persona: Persona) {
+    return this.personasRepository.save(persona);
       }
     
-  findAll(): Promise<PersonaModule[]> {
+  findAll(): Promise<Persona[]> {
         return this.personasRepository.find();
       }
     
-   findOne(id: number): Promise<PersonaModule> {
+   findOne(id: number): Promise<Persona> {
         return this.personasRepository.findOne({ where: { id } });
       }
     
-      async update(id: number, perso: PersonaModule) {
-        await this.personasRepository.update(id, perso);
+      async update(id: number, persona: Persona) {
+        await this.personasRepository.update(id, persona);
         return this.personasRepository.findOne({ where: { id } });
       }
     

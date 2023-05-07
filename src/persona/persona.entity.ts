@@ -1,9 +1,11 @@
 import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { PersonaController } from './persona.controller';
+import { PersonaService } from './persona.service';
 
-@Module({})
 @Entity()
-export class PersonaModule {
+export class Persona {
   @PrimaryGeneratedColumn()
   id: number;
 
